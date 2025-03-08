@@ -1,0 +1,23 @@
+#    performance_tuning.cnf (برای my.cnf یا my.ini):
+[mysqld]
+# تنظیمات حافظه
+innodb_buffer_pool_size = 1G
+innodb_log_file_size = 256M
+innodb_flush_log_at_trx_commit = 2
+
+# تنظیمات اتصال
+max_connections = 100
+max_connect_errors = 100
+
+# کش و عملکرد
+query_cache_type = 1
+query_cache_size = 64M
+
+# امنیت
+local_infile = 0
+sql_mode = 'STRICT_ALL_TABLES,NO_AUTO_CREATE_USER'
+
+# تنظیمات جهت کاهش I/O
+innodb_flush_method = O_DIRECT
+innodb_read_io_threads = 4
+innodb_write_io_threads = 4

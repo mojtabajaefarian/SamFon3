@@ -1,0 +1,39 @@
+version: "3.8"
+
+services:
+  database:
+    image: mysql:8.0
+    container_name: samfon-database
+    environment:
+      MYSQL_ROOT_PASSWORD: ${ROOT_DB_PASSWORD}
+      MYSQL_DATABASE: samfon_db
+      MYSQL_USER: app_user
+      MYSQL_PASSWORD: ${APP_DB_PASSWORD}
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./database/schema:/docker-entrypoint-initdb.d
+      - database-data:/var/lib/mysql
+    networks:
+      - backend_network
+    restart: always
+
+  monitoring:
+    image: prom/prometheus
+    container_name: database-monitoring
+    volumes:
+      - ./monitoring/prometheus.yml:/etc/prometheus/prometheus.yml
+    ports:
+      - "9090:9090"
+    networks:
+      - backend_network
+    depends_on:
+      - database
+
+networks:
+  backend_network:
+    driver: bridge
+
+volumes:
+  database-data:
+    driver: local

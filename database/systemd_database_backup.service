@@ -1,0 +1,11 @@
+[Unit]
+Description=Automated MySQL Database Backup Service
+After=network.target
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/bin/database_backup.sh
+User=backup_user
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,22 @@
+<!-- نمونه مستندات API با Redoc -->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>SamFon API Docs</title>
+        <script src="https://cdn.redoc.ly/redoc/latest/bundles/redoc.standalone.js"></script>
+    </head>
+    <body>
+        <div id="redoc-container"></div>
+        <script>
+            Redoc.init(
+                "https://api.yoursite.com/openapi.json",
+                {
+                    scrollYOffset: 50,
+                    hideDownloadButton: true,
+                    theme: { colors: { primary: { main: "#3f51b5" } } },
+                },
+                document.getElementById("redoc-container")
+            );
+        </script>
+    </body>
+</html>

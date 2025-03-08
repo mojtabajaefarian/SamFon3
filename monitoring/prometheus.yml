@@ -1,0 +1,19 @@
+global:
+  scrape_interval: 15s
+
+scrape_configs:
+  - job_name: "mysql_monitoring"
+    static_configs:
+      - targets: ["database:9104"]
+
+  - job_name: "system_metrics"
+    static_configs:
+      - targets: ["localhost:9100"]
+
+alerting:
+  alertmanagers:
+    - static_configs:
+        - targets: ["alertmanager:9093"]
+
+rule_files:
+  - "alert_rules.yml"
