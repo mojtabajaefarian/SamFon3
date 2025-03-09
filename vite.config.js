@@ -22,4 +22,19 @@ export default defineConfig({
             vue: "vue/dist/vue.esm-bundler.js",
         },
     },
+    server: {
+        host: "localhost",
+        port: 5173,
+        strictPort: true,
+        hmr: {
+            host: "localhost",
+        },
+    },
+    css: {
+        preprocessorOptions: {
+            scss: {
+                additionalData: `@import "resources/sass/_variables.scss";`,
+            },
+        },
+    },
 });

@@ -1,8 +1,29 @@
-// Fonts
-@import url('https://fonts.bunny.net/css?family=Nunito');
+// ❌ حذف بخش‌های مربوط به بوتاسترپ
+// @import "variables";
+// @import "bootstrap/scss/bootstrap";
 
-// Variables
-@import 'variables';
+// ✅ نگه داشتن بخش‌های ضروری
+@import url("https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700&display=swap");
 
-// Bootstrap
-@import 'bootstrap/scss/bootstrap';
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+// 🔄 تنظیمات سفارشی با Sass
+$primary: #3b82f6;
+
+.header {
+    background: linear-gradient(to right, $primary, darken($primary, 15%));
+
+    // 🔼 افزودن پشتیبانی از Tailwind
+    @apply text-white py-4 shadow-lg;
+}
+
+// 🎨 اضافه کردن کلاس‌های سفارشی
+.minimal-card {
+    @apply bg-white rounded-lg p-6 shadow-md transition-transform duration-300 hover:scale-105;
+
+    &:hover {
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    }
+}

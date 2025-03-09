@@ -2,6 +2,16 @@
 $body-bg: #f8fafc;
 
 // Typography
-$font-family-sans-serif: 'Nunito', sans-serif;
+$font-family-sans-serif: "Nunito", sans-serif;
 $font-size-base: 0.9rem;
 $line-height-base: 1.6;
+// رنگ‌ها
+$primary: #3b82f6;
+$secondary: #6366f1;
+
+// سایه‌ها
+$shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+$shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+
+// انیمیشن‌ها
+$transition-speed: 0.3s;
