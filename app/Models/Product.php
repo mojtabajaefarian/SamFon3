@@ -7,11 +7,7 @@ use Illuminate\Database\Eloquent\Casts\Attribute;
 
 class Product extends Model
 {
-       protected $casts = [
-              'price' => 'decimal:2',
-              'special_price' => 'decimal:2',
-              'stock_count' => 'integer',
-       ];
+       protected $fillable = ['name', 'price', 'stock', 'sim_type', 'data_plan'];
 
        protected $appends = ['final_price'];
 

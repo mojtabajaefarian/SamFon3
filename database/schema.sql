@@ -1,12 +1,13 @@
 -- Database Setup با تنظیمات بهینه
-CREATE DATABASE IF NOT EXISTS samfon_db 
+CREATE DATABASE IF NOT EXISTS samfon_db3
 CHARACTER SET utf8mb4 
 COLLATE utf8mb4_unicode_ci;
 
-USE samfon_db;
+USE samfon_db3;
 
 -- تنظیمات اجرایی
 SET @@SESSION.SQL_MODE = 'TRADITIONAL,ALLOW_INVALID_DATES';
+
 
 -- جدول کاربران
 CREATE TABLE users (

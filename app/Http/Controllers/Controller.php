@@ -2,16 +2,11 @@
 
 namespace App\Http\Controllers;
 
-abstract class Controller
+use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
+use Illuminate\Foundation\Validation\ValidatesRequests;
+use Illuminate\Routing\Controller as BaseController;
+
+class Controller extends BaseController
 {
-    // در کنترلر محصولات
-    public function index()
-    {
-        return Cache::remember('all_products', 3600, function () {
-            return Product::with('category')
-                ->active()
-                ->orderBy('stock_count', 'desc')
-                ->paginate(25);
-        });
-    }
+    use AuthorizesRequests, ValidatesRequests;
 }

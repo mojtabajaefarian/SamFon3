@@ -23,4 +23,6 @@ Route::prefix('v1')->group(function () {
               Route::get('/reports', [ReportController::class, 'index']);
               Route::get('/low-stock', [ReportController::class, 'lowStock']);
        });
+
+       Route::apiResource('products', ProductController::class);
 });

@@ -1,12 +1,25 @@
-// tests/Feature/ProductLoadTest.php
-public function test_product_index_load_time()
+
+<?php
+
+namespace Tests\Feature;
+
+use Tests\TestCase;
+use App\Models\Product;
+use Illuminate\Foundation\Testing\RefreshDatabase;
+
+class ProductLoadTest extends TestCase
 {
-Product::factory()->count(30000)->create();
+       use RefreshDatabase;
 
-$start = microtime(true);
-$response = $this->get('/api/v1/products');
-$end = microtime(true);
+       public function test_product_index_load_time()
+       {
+              Product::factory()->count(30000)->create();
 
-$response->assertStatus(200);
-$this->assertLessThan(1.5, $end - $start);
+              $start = microtime(true);
+              $response = $this->get('/api/v1/products');
+              $end = microtime(true);
+
+              $response->assertStatus(200);
+              $this->assertLessThan(1.5, $end - $start);
+       }
 }
